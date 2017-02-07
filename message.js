@@ -14,7 +14,7 @@ Message.prototype.react = function(data) {
 Message.prototype.answer = function(answer_string) {
 	var data = this.process(answer_string);
 	if (!data) {
-		this.reply = 'I\'m sorry, I\'ve gotten confused.  Let\'s start over';
+		this.reply = 'I\'m sorry, I\'ve gotten confused.  Let\'s go back.';
 		return this.id;
 	}
 	return this.react(data);
