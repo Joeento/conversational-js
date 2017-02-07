@@ -17,9 +17,40 @@ var messages = [
 		},
 		react: function(data) {
 			if (data === 'yes') {
-				return 1;
+				return 3;
 			}
 			return 2;
+		}
+	},
+	{
+		id: 2,
+		question: 'Okay, I\'ll leave you alone.',
+		reply: 'Message me later if you change your mind.',
+		react: function(answer_string) {
+			return false;
+		}
+	},
+	{
+		id: 3,
+		question: 'When do you want to make the message for?',
+		reply: 'Got it!',
+		process: function(answer_string) {
+			return new Date(answer_string);
+		},
+		react: function(data) {
+			//Cron logic goes here.
+			return 4;
+		}
+	},
+	{
+		id: 4,
+		question: 'What would you like the message to be?',
+		reply: 'Thanks! Your reminder has been set.  You will recieve a message at your requested time.',
+		process: function(answer_string) {
+			return new Date(answer_string);
+		},
+		react: function(data) {
+			return false;
 		}
 	}
 
