@@ -8,9 +8,9 @@ var messages = [
 		process: function(answer_string) {
 			var yes_options = ['yes', 'yes please', 'yeah', 'sure', 'ok', 'definitely'];
 			var no_options = ['no', 'no thanks', 'nope', 'not now', 'no thank you', 'i don\'t think so'];
-			if (yes_options.indexOf(answer_string.toLowerCase())) {
+			if (yes_options.indexOf(answer_string.toLowerCase()) > -1) {
 				return 'yes';
-			} else if (no_options.indexOf(answer_string.toLowerCase())) {
+			} else if (no_options.indexOf(answer_string.toLowerCase()) > -1) {
 				return 'no';
 			}
 			return false;
@@ -19,13 +19,14 @@ var messages = [
 			if (data === 'yes') {
 				return 3;
 			}
-			return 2;
+			this.reply = 'I\'ll leave you alone then. Message me later if you change your mind.';
+			return false;
 		}
 	},
 	{
 		id: 2,
-		question: 'Okay, I\'ll leave you alone.',
-		reply: 'Message me later if you change your mind.',
+		question: 'I\'ll leave you alone then. Message me later if you change your mind.',
+		reply: '',
 		react: function(answer_string) {
 			return false;
 		}
@@ -50,6 +51,7 @@ var messages = [
 			return new Date(answer_string);
 		},
 		react: function(data) {
+			//Name save goes here
 			return false;
 		}
 	}
