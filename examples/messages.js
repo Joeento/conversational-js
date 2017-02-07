@@ -1,5 +1,5 @@
 'use strict';
-
+var Message = require('../message.js');
 var messages = [
 	{
 		id: 1,
@@ -55,3 +55,11 @@ var messages = [
 	}
 
 ];
+module.exports = [];
+for (var i = 0; i < messages.length; i++) {
+	var message = new Message();
+	for(var prop in messages[i]) {
+		message[prop] = messages[i][prop];
+	}
+	module.exports[messages[i].id] = message;
+}
