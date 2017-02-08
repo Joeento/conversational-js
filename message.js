@@ -11,12 +11,12 @@ Message.prototype.process = function(answer_string) {
 Message.prototype.react = function(data) {
 	return false;
 };
-Message.prototype.answer = function(answer_string) {
+Message.prototype.answer = function(answer_string, callback) {
 	var data = this.process(answer_string);
 	if (!data) {
 		this.reply = 'I\'m sorry, I\'ve gotten confused.  Let\'s go back.';
-		return this.id;
+		callback(this.id, this.id, callback);
 	}
-	return this.react(data);
+	callback(this.react(data), this.id, callback);
 };
 module.exports = Message;

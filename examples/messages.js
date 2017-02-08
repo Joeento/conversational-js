@@ -17,7 +17,7 @@ var messages = [
 		},
 		react: function(data) {
 			if (data === 'yes') {
-				return 3;
+				return 2;
 			}
 			this.reply = 'I\'ll leave you alone then. Message me later if you change your mind.';
 			return false;
@@ -25,14 +25,6 @@ var messages = [
 	},
 	{
 		id: 2,
-		question: 'I\'ll leave you alone then. Message me later if you change your mind.',
-		reply: '',
-		react: function(answer_string) {
-			return false;
-		}
-	},
-	{
-		id: 3,
 		question: 'When do you want to make the message for?',
 		reply: 'Got it!',
 		process: function(answer_string) {
@@ -40,11 +32,11 @@ var messages = [
 		},
 		react: function(data) {
 			//Cron logic goes here.
-			return 4;
+			return 3;
 		}
 	},
 	{
-		id: 4,
+		id: 3,
 		question: 'What would you like the message to be?',
 		reply: 'Thanks! Your reminder has been set.  You will recieve a message at your requested time.',
 		process: function(answer_string) {
