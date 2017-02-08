@@ -5,15 +5,16 @@ var messages = [
 		id: 1,
 		question: 'Hi! Would you like to schedule a reminder for later?',
 		reply: 'Ok!',
-		process: function(answer_string) {
+		process: function(answer_string, callback) {
 			var yes_options = ['yes', 'yes please', 'yeah', 'sure', 'ok', 'definitely'];
 			var no_options = ['no', 'no thanks', 'nope', 'not now', 'no thank you', 'i don\'t think so'];
+			var answer = false;
 			if (yes_options.indexOf(answer_string.toLowerCase()) > -1) {
-				return 'yes';
+				answer = 'yes';
 			} else if (no_options.indexOf(answer_string.toLowerCase()) > -1) {
-				return 'no';
+				answer = 'no';
 			}
-			return false;
+			callback(answer);
 		},
 		react: function(data) {
 			if (data === 'yes') {
@@ -28,8 +29,8 @@ var messages = [
 		id: 2,
 		question: 'When do you want to make the message for?',
 		reply: 'Got it!',
-		process: function(answer_string) {
-			return new Date(answer_string);
+		process: function(answer_string, callback) {
+			callback(new Date(answer_string));
 		},
 		react: function(data) {
 			//Cron logic goes here.
@@ -40,9 +41,6 @@ var messages = [
 		id: 3,
 		question: 'What would you like the message to be?',
 		reply: 'Thanks! Your reminder has been set.  You will recieve a message at your requested time.',
-		process: function(answer_string) {
-			return new Date(answer_string);
-		},
 		react: function(data) {
 			//Name save goes here
 			return false;
