@@ -2,11 +2,19 @@
 
 var readline = require('readline-sync');
 var messages = require('./messages');
-var index = 1;
-while (index !== false) {
+
+var chat = function(index, prevIndex, callback) {
+	if (prevIndex > 0) {
+		var prevMessage = messages[prevIndex];
+		console.log(prevMessage.reply);
+	}
+	if (index === false) {
+		return;
+	}
 	var message = messages[index];
 	console.log(message.question);
 	var answer = readline.question();
-	index = message.answer(answer);
-	console.log(message.reply);
-}
+	message.answer(answer, callback);
+};
+
+chat(1, 0, chat);
