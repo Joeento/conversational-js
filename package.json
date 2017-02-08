@@ -1,5 +1,5 @@
 {
-  "name": "deb8",
+  "name": "conversational-js",
   "version": "0.0.3",
   "description": "A quick library for creating a conversation bot.",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Joeento/deb8.git"
+    "url": "git+https://github.com/Joeento/conversational-js.git"
   },
   "keywords": [
     "chat",
@@ -18,9 +18,9 @@
   "author": "Eric Kudler <joeento@gmail.com> (http://erickudler.com)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Joeento/deb8/issues"
+    "url": "https://github.com/Joeento/conversational-js/issues"
   },
-  "homepage": "https://github.com/Joeento/deb8#readme",
+  "homepage": "https://github.com/Joeento/conversational-js#readme",
   "dependencies": {
     "readline-sync": "^1.4.6"
   }
