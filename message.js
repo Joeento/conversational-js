@@ -16,6 +16,7 @@ Message.prototype.answer = function(answer_string, callback) {
 	if (!data) {
 		this.reply = 'I\'m sorry, I\'ve gotten confused.  Let\'s go back.';
 		callback(this.id, this.id, callback);
+		return;
 	}
 	callback(this.react(data), this.id, callback);
 };
