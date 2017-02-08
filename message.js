@@ -12,14 +12,14 @@ Message.prototype.react = function(data) {
 	return false;
 };
 Message.prototype.answer = function(answer_string, callback) {
-	var data = this.process(answer_string);
-	this.process(answer_string, function(data) {
+	var self = this;
+	self.process(answer_string, function(data) {
 		if (!data) {
-			this.reply = 'I\'m sorry, I\'ve gotten confused.  Let\'s go back.';
-			callback(this.id, this.id, callback);
+			self.reply = 'I\'m sorry, I\'ve gotten confused.  Let\'s go back.';
+			callback(self.id, self.id, callback);
 			return;
 		}
-		callback(this.react(data), this.id, callback);
+		callback(self.react(data), self.id, callback);
 	});
 };
 module.exports = Message;
