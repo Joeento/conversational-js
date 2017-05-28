@@ -4,7 +4,14 @@ function Message() {
 	this.id = 1;
 	this.question = '';
 	this.reply = '';
+	this.reply_override = '';
 }
+Message.prototype.ask = function() {
+	return this.question;
+};
+Message.prototype.respond = function() {
+	return this.reply_override ? this.reply_override : this.reply;
+};
 Message.prototype.process = function(answer_string, callback) {
 	callback(answer_string);
 };
