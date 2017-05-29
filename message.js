@@ -22,7 +22,7 @@ Message.prototype.answer = function(answer_string, callback) {
 	var self = this;
 	self.process(answer_string, function(data) {
 		if (!data) {
-			self.reply = 'I\'m sorry, I\'ve gotten confused.  Let\'s go back.';
+			self.reply_override = 'I\'m sorry, I\'ve gotten confused.  Let\'s go back.';
 			callback(self.id, self.id, callback);
 			return;
 		}

@@ -20,7 +20,7 @@ var messages = [
 			if (data === 'yes') {
 				return 2;
 			} else if (data === 'no') {
-				this.reply = 'I\'ll leave you alone then. Message me later if you change your mind.';
+				this.reply_override = 'I\'ll leave you alone then. Message me later if you change your mind.';
 				return false;
 			}
 		}
