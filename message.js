@@ -10,7 +10,12 @@ Message.prototype.ask = function() {
 	return this.question;
 };
 Message.prototype.respond = function() {
-	return this.reply_override ? this.reply_override : this.reply;
+	if (this.reply_override) {
+		var temp = this.reply_override;
+		delete this.reply_override;
+		return temp;
+	}
+	return this.reply;
 };
 Message.prototype.process = function(answer_string, callback) {
 	callback(answer_string);
