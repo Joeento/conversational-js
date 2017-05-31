@@ -25,6 +25,7 @@ Knowing this algorithm, we can build an execution loop that mimicks a conversati
 That may seem like a lot but it's pretty easy once you visualize it.  Below is a diagram for a bot that sends messages reminding them of notes at a certain time.
 
 ![conversation flowchart](https://raw.githubusercontent.com/Joeento/conversational-js/master/example/flowchart.png)
+
 And here's an example of the first message:
 ```
 {
