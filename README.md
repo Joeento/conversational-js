@@ -29,29 +29,29 @@ That may seem like a lot but it's pretty easy once you visualize it.  Below is a
 And here's an example of the first message:
 ```
 {
-		id: 1,
-		question: 'Hi! Would you like to schedule a reminder for later?',
-		reply: 'Ok!',
-		process: function(answer_string, callback) {
-			var yes_options = ['yes', 'yes please', 'yeah', 'sure', 'ok', 'definitely'];
-			var no_options = ['no', 'no thanks', 'nope', 'not now', 'no thank you', 'i don\'t think so'];
-			var answer = false;
-			if (yes_options.indexOf(answer_string.toLowerCase()) > -1) {
-				answer = 'yes';
-			} else if (no_options.indexOf(answer_string.toLowerCase()) > -1) {
-				answer = 'no';
-			}
-			callback(answer);
-		},
-		react: function(data) {
-			if (data === 'yes') {
-				return 2;
-			} else if (data === 'no') {
-				this.reply_override = 'I\'ll leave you alone then. Message me later if you change your mind.';
-				return false;
-			}
+	id: 1,
+	question: 'Hi! Would you like to schedule a reminder for later?',
+	reply: 'Ok!',
+	process: function(answer_string, callback) {
+		var yes_options = ['yes', 'yes please', 'yeah', 'sure', 'ok', 'definitely'];
+		var no_options = ['no', 'no thanks', 'nope', 'not now', 'no thank you', 'i don\'t think so'];
+		var answer = false;
+		if (yes_options.indexOf(answer_string.toLowerCase()) > -1) {
+			answer = 'yes';
+		} else if (no_options.indexOf(answer_string.toLowerCase()) > -1) {
+			answer = 'no';
+		}
+		callback(answer);
+	},
+	react: function(data) {
+		if (data === 'yes') {
+			return 2;
+		} else if (data === 'no') {
+			this.reply_override = 'I\'ll leave you alone then. Message me later if you change your mind.';
+			return false;
 		}
 	}
+}
 ```
 The full example can be found in [example/messages.js](https://github.com/Joeento/conversational-js/blob/master/example/messages.js)
 
