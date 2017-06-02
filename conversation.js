@@ -6,9 +6,6 @@ function Conversation() {
 	this.Conversations = [];
 }
 
-Conversation.prototype.getQuestion = function() {
-	return this.messages[this.state].question;
-};
 
 Conversation.prototype.loadMessages = function(message_collection) {
 	for (var i = 0; i < message_collection.length; i++) {
@@ -18,6 +15,25 @@ Conversation.prototype.loadMessages = function(message_collection) {
 		}
 		this.messages[message_collection[i].id] = message;
 	}
+
+};
+
+Conversation.getMessage = function() {
+	return this.message[this.state];
+};
+
+Conversation.prototype.ask = function(answer_string, callback) {
+	var message = this.getMessage;
+	return message.ask();
+};
+
+Conversation.prototype.answer = function(answer_string, callback) {
+
+};
+
+Conversation.prototype.respond = function(answer_string, callback) {
+	var message = this.getMessage;
+	return message.respond();
 };
 
 module.exports = Conversation;
