@@ -18,12 +18,12 @@ Conversation.prototype.loadMessages = function(message_collection) {
 
 };
 
-Conversation.getMessage = function() {
-	return this.message[this.state];
+Conversation.prototype.getMessage = function() {
+	return this.messages[this.state];
 };
 
 Conversation.prototype.ask = function(answer_string, callback) {
-	var message = this.getMessage;
+	var message = this.getMessage();
 	return message.ask();
 };
 
@@ -32,7 +32,7 @@ Conversation.prototype.answer = function(answer_string, callback) {
 };
 
 Conversation.prototype.respond = function(answer_string, callback) {
-	var message = this.getMessage;
+	var message = this.getMessage();
 	return message.respond();
 };
 
