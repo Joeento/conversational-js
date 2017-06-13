@@ -17,21 +17,23 @@ Message.prototype.respond = function() {
 	}
 	return this.reply;
 };
-Message.prototype.process = function(answer_string, callback) {
-	callback(answer_string);
+Message.prototype.process = function(answer, callback) {
+	callback(answer);
 };
 Message.prototype.react = function(data) {
 	return false;
 };
-Message.prototype.answer = function(answer_string, callback) {
+Message.prototype.answer = function(answer, callback) {
 	var self = this;
-	self.process(answer_string, function(data) {
+	self.process(answer, function(data) {
 		if (!data) {
 			self.reply_override = 'I\'m sorry, I\'ve gotten confused.  Let\'s go back.';
 			callback(self.id, self.id, callback);
 			return;
 		}
-		callback(self.react(data), self.id, callback);
+		self.react(data, function(next_message_id) {
+			callback(next_message_id, self.id, callback);
+		});
 	});
 };
 module.exports = Message;

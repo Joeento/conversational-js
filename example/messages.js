@@ -16,12 +16,12 @@ var messages = [
 			}
 			callback(answer);
 		},
-		react: function(data) {
+		react: function(data, callback) {
 			if (data === 'yes') {
-				return 2;
+				callback(2);
 			} else if (data === 'no') {
 				this.reply_override = 'I\'ll leave you alone then. Message me later if you change your mind.';
-				return false;
+				callback(false);
 			}
 		}
 	},
@@ -32,18 +32,18 @@ var messages = [
 		process: function(answer_string, callback) {
 			callback(new Date(answer_string));
 		},
-		react: function(data) {
+		react: function(data, callback) {
 			//Cron logic goes here.
-			return 3;
+			callback(3);
 		}
 	},
 	{
 		id: 3,
 		question: 'What would you like the message to be?',
 		reply: 'Thanks! Your reminder has been set.  You will recieve a message at your requested time.',
-		react: function(data) {
+		react: function(data, callback) {
 			//Name save goes here
-			return false;
+			callback(false);
 		}
 	}
 
